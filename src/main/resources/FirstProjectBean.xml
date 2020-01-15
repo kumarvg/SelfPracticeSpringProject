@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> <!-- bean definitions here -->
+	
+	
+	<bean id="factoryObj"
+		class="com.Vishal.FirstSpringProject.FactoryBulp"  factory-method="factMethod" init-method="init">
+	
+			<property name="tubelight" ref="suryaObj"/>
+		<property name="bulb" ref="suryaTubeLightObj"/>
+
+	
+	
+	<!-- <bean id="factoryObj"
+		class="com.Vishal.FirstSpringProject.FactoryBulp" autowire="constructor" lazy-init="true">
+		 
+		 <constructor-arg index="0" ref="suryaObj"/> 
+		 		 <constructor-arg index="1" ref="suryaTubeLightObj"/> 
+		 	<property name="bulb" ref="suryaObj" />
+		<property name="tubelight" ref="suryaTubeLightObj" />
+		<property name="wireMaterial" value="Tungestan"/>
+		<property name="tubeLightGas" value="Nitrogen"/>
+		
+		 <constructor-arg index="2" value="Tungasten"/>
+		 <constructor-arg index="3" value="Nitrogen"/> 
+ -->
+
+	</bean>
+
+
+
+<!-- <bean id="factoryObj2"
+		class="com.Vishal.FirstSpringProject.FactoryBulp" autowire="constructor" lazy-init="true">
+	 <constructor-arg index="2" value="Tungasten"/>
+	 <constructor-arg index="3" value="Nitrogen"/> 
+
+
+	</bean>
+ -->
+
+<bean id="suryaObj"
+		class="com.Vishal.FirstSpringProject.SuryaBulb" primary="true" lazy-init="true">
+	</bean>
+	
+	<bean id="anchorObj"
+		class="com.Vishal.FirstSpringProject.AnchorBulb" lazy-init="false">
+	</bean>
+
+	<bean id="suryaTubeLightObj"
+		class="com.Vishal.FirstSpringProject.SuryaTubeLight" lazy-init="false">
+	</bean>
+
+
+
+
+
+</beans>
